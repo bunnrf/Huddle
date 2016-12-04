@@ -1,43 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import MeetingMap from './components/MeetingMap';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import configureStore from './store/store';
+import AppRouter from './components/router';
+
+const store = configureStore();
 
 export default class App extends Component {
   render() {
     return (
-      <MeetingMap />
+      <Provider store={store} >
+        <AppRouter />
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-module.exports = App;

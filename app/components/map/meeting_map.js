@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Dimensions,
-  ScrollView,
   View,
 } from 'react-native';
 
@@ -23,7 +22,7 @@ const SAMPLE_REGION = {
   longitudeDelta: LONGITUDE_DELTA,
 };
 
-class MeetingMap extends React.Component {
+class MeetingMap extends Component {
   render() {
     return (
       <MapView style={styles.map} initialRegion={SAMPLE_REGION} />
@@ -32,11 +31,6 @@ class MeetingMap extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
