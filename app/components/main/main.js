@@ -14,7 +14,7 @@ class Main extends Component {
     return (
       <View>
         <Text style={styles.text}>
-          Welcome to Huddle!
+          Welcome!
         </Text>
       </View>
     )

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Actions } from 'react-native-router-flux';
 import {
   StyleSheet,
   Dimensions,
   View,
 } from 'react-native';
-
 import MapView from 'react-native-maps';
+import Button from 'react-native-button';
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,15 +26,21 @@ const SAMPLE_REGION = {
 class MeetingMap extends Component {
   render() {
     return (
-      <MapView style={styles.map} initialRegion={SAMPLE_REGION} />
+      <View style={styles.container}>
+        <Button onPress={Actions.pop}>Back</Button>
+        <MapView style={styles.map} initialRegion={SAMPLE_REGION} />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+  },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
 });
 
-module.exports = MeetingMap;
+export default MeetingMap;

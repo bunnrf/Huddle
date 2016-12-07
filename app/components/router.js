@@ -4,13 +4,14 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import Main from './main/main_container';
 import MapContainer from './map/map_container';
+import ContactsContainer from './contacts/contacts_container';
+import MeetingsContainer from './meetings/meetings_container';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 class TabIcon extends Component {
   render () {
-    var color = this.props.selected ? '#FF3366' : '#FFB3B3'
-    console.log(this.props.iconName);
+    const color = this.props.selected ? '#FF3366' : '#FFB3B3'
     return (
       <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', alignSelf: 'center'}}>
         <Icon style={{color: color}} name={this.props.iconName} size={30} />
@@ -20,7 +21,7 @@ class TabIcon extends Component {
   }
 }
 
-export default class AppRouter extends Component {
+class AppRouter extends Component {
   render() {
     return (
       <Router sceneStyle={{ backgroundColor: 'white' }}>
@@ -44,14 +45,14 @@ export default class AppRouter extends Component {
               iconName={'book'}
               icon={TabIcon}
               hideNavBar
-              component={MapContainer} />
+              component={ContactsContainer} />
 
             <Scene key="Meetings"
               title="Meetings"
               iconName={'group'}
               icon={TabIcon}
               hideNavBar
-              component={Main} />
+              component={MeetingsContainer} />
 
             <Scene key="Map"
               title="Map"
@@ -62,7 +63,6 @@ export default class AppRouter extends Component {
               component={MapContainer} />
 
           </Scene>
-          <Scene key="home" component={Main} type="replace" />
         </Scene>
       </Router>
     )
@@ -75,3 +75,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   }
 })
+
+export default AppRouter;
